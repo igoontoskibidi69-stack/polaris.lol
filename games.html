@@ -445,18 +445,18 @@ __wm.bt(600,27,25,2,"web","https://www.roblox.com/games/?SortFilter=default&Time
 
             </div>
             <div class="navbar-header">
-                <a class="navbar-brand" href="https://web.archive.org/web/20160428130446/https://www.roblox.com/"><span class="logo logo-transitional"></span></a>
+                <a class="navbar-brand" href="/games"><span class="logo logo-transitional"></span></a>
             </div>
         </div>
         <ul class="nav rbx-navbar hidden-xs hidden-sm col-md-4 col-lg-3">
             <li>
-                <a href="https://web.archive.org/web/20160428130446/https://www.roblox.com/games">Games</a>
+                <a href="/games">Games</a>
             </li>
             <li>
                 <a href="https://web.archive.org/web/20160428130446/https://www.roblox.com/catalog">Catalog</a>
             </li>
             <li>
-                <a href="https://web.archive.org/web/20160428130446/https://www.roblox.com/develop">Develop</a>
+                <a href="/develop">Develop</a>
             </li>
             <li>
                 <a class="buy-robux" href="https://web.archive.org/web/20160428130446/https://www.roblox.com/upgrades/robux?ctx=nav">ROBUX</a>
@@ -510,13 +510,13 @@ __wm.bt(600,27,25,2,"web","https://www.roblox.com/games/?SortFilter=default&Time
         </div><!-- navbar right-->
         <ul class="nav rbx-navbar hidden-md hidden-lg col-xs-12">
             <li>
-                <a href="https://web.archive.org/web/20160428130446/https://www.roblox.com/games">Games</a>
+                <a href="/games">Games</a>
             </li>
             <li>
                 <a href="https://web.archive.org/web/20160428130446/https://www.roblox.com/catalog/">Catalog</a>
             </li>
             <li>
-                <a href="https://web.archive.org/web/20160428130446/https://www.roblox.com/develop">Develop</a>
+                <a href="/develop">Develop</a>
             </li>
             <li>
                 <a class="buy-robux" href="https://web.archive.org/web/20160428130446/https://www.roblox.com/upgrades/robux?ctx=nav">ROBUX</a>
@@ -1490,6 +1490,615 @@ __wm.bt(600,27,25,2,"web","https://www.roblox.com/games/?SortFilter=default&Time
     <noscript>
         <img src="https://web.archive.org/web/20160428130446im_/http://b.scorecardresearch.com/p?c1=2&amp;c2=&amp;c3=&amp;c4=&amp;c5=&amp;c6=&amp;c15=&amp;cv=2.0&amp;cj=1"/>
     </noscript>
+<style>
+#FiltersAndSort.polaris-ready {
+    display: flex !important;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    height: auto;
+    min-height: 42px;
+    padding-bottom: 12px;
+}
+
+#PolarisUploadButton,
+#PolarisRefresh {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    background: #f4f4f4;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#PolarisUploadButton:hover,
+#PolarisRefresh:hover {
+    background: #e5e5e5;
+}
+
+#PolarisFile {
+    display: none !important;
+}
+
+#GamesPageSearch.polaris-search-visible {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    min-height: 35px;
+    margin: 0 0 15px;
+}
+
+#GamesPageSearch.polaris-search-visible #searchbox {
+    display: inline-block !important;
+    width: calc(100% - 45px);
+    min-height: 32px;
+    box-sizing: border-box;
+}
+
+#GamesPageSearch .SearchIconButton {
+    cursor: pointer;
+}
+
+#GamesListContainer1.polaris-list-visible {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+#GamesListContainer1 .games-list-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#PolarisStatus {
+    color: #777;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#GamesListContainer1 .games-list {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+#PolarisStatusLine {
+    display: block;
+    margin: 10px 0;
+    color: #555;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+#GamesListContainer1 ul.game-cards-grid.polaris-grid {
+    display: grid !important;
+    visibility: visible !important;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 14px;
+    width: 100%;
+    height: auto !important;
+    min-height: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    list-style: none !important;
+}
+
+#GamesListContainer1 ul.game-cards-grid.polaris-grid > li.polaris-game-card {
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+    float: none !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 0;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 1px solid #d6d6d6;
+    background: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#GamesListContainer1 .polaris-game-thumbnail {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #e5e5e5;
+    color: #777;
+    font-size: 42px;
+}
+
+#GamesListContainer1 .polaris-game-details {
+    display: block !important;
+    padding: 10px;
+}
+
+#GamesListContainer1 .polaris-game-title {
+    display: block !important;
+    min-height: 34px;
+    margin: 0 0 6px;
+    color: #333 !important;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 17px;
+    overflow-wrap: anywhere;
+}
+
+#GamesListContainer1 .polaris-game-size {
+    display: block;
+    margin-bottom: 10px;
+    color: #777;
+    font-size: 12px;
+}
+
+#GamesListContainer1 .polaris-play-button {
+    display: block !important;
+    width: 100%;
+    padding: 7px 8px;
+    border: 1px solid #1684c7;
+    border-radius: 3px;
+    background: #00a2ff;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#GamesListContainer1 .polaris-play-button:hover {
+    background: #008bdc;
+}
+
+#GamesListContainer1 .polaris-play-button:disabled,
+#PolarisUploadButton:disabled,
+#PolarisRefresh:disabled {
+    opacity: .55;
+    cursor: wait;
+}
+
+#GamesListContainer1 .polaris-empty {
+    display: block !important;
+    grid-column: 1 / -1;
+    padding: 20px 5px;
+    color: #777;
+    font-size: 14px;
+    list-style: none;
+}
+
+@media (max-width: 480px) {
+    #GamesListContainer1 ul.game-cards-grid.polaris-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ---- Local library cleanup: hide leftover Roblox page parts ---- */
+#GamesPageRightColumn,
+#wm-ipp-base,
+#SortFilter, #TimeFilter, #GenreFilter,
+.games-list-container:not(#GamesListContainer1),
+#GamesListContainer1 .show-in-multiview-mode-only,
+#GamesListContainer1 .abp-spacer {
+    display: none !important;
+}
+
+.games-page-left {
+    width: 100% !important;
+    max-width: none !important;
+    float: none !important;
+}
+
+#GamesListContainer1 .polaris-game-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#PolarisSort {
+    padding: 8px 10px;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    background: #f4f4f4;
+    color: #333;
+    font-size: 14px;
+}
+</style>
+
+<script>
+(function () {
+    "use strict";
+
+    function initializePolaris() {
+        if (window.polarisInitialized) return;
+        window.polarisInitialized = true;
+
+        const filters = document.getElementById("FiltersAndSort");
+        const searchPanel = document.getElementById("GamesPageSearch");
+        const searchInput = document.getElementById("searchbox");
+        const list = document.getElementById("GamesListContainer1");
+        const grid = list && list.querySelector("ul.game-cards-grid");
+
+        if (!filters || !searchPanel || !searchInput || !list || !grid) {
+            console.error("POLARIS: Required original game-grid elements are missing.");
+            return;
+        }
+
+        let maps = [];
+        let loading = false;
+        let launching = false;
+        let uploading = false;
+        let sortMode = "name";
+
+        function byName(a, b) {
+            return a.title.localeCompare(b.title, undefined, {
+                numeric: true,
+                sensitivity: "base"
+            });
+        }
+
+        function compareMaps(a, b) {
+            if (sortMode === "newest") return (b.modified - a.modified) || byName(a, b);
+            if (sortMode === "oldest") return (a.modified - b.modified) || byName(a, b);
+            if (sortMode === "largest") return (b.size - a.size) || byName(a, b);
+            if (sortMode === "smallest") return (a.size - b.size) || byName(a, b);
+            if (sortMode === "name-desc") return byName(b, a);
+            return byName(a, b);
+        }
+
+        filters.classList.remove("loading");
+        filters.classList.add("polaris-ready");
+
+        list.classList.remove("hidden");
+        list.classList.add("polaris-list-visible");
+        list.style.setProperty("display", "block", "important");
+
+        const heading = list.querySelector(".games-list-header h3");
+        if (heading) heading.textContent = "Local Games";
+
+        searchPanel.classList.remove("hidden");
+        searchPanel.classList.add("polaris-search-visible");
+        searchInput.placeholder = "Search local games...";
+        searchInput.setAttribute("aria-label", "Search local games");
+
+        const header = list.querySelector(".games-list-header");
+        let status = document.getElementById("PolarisStatus");
+
+        if (!status) {
+            status = document.createElement("span");
+            status.id = "PolarisStatus";
+            status.setAttribute("role", "status");
+            status.setAttribute("aria-live", "polite");
+        }
+
+        if (header) header.appendChild(status);
+
+        let statusLine = document.getElementById("PolarisStatusLine");
+
+        if (!statusLine) {
+            statusLine = document.createElement("div");
+            statusLine.id = "PolarisStatusLine";
+            statusLine.setAttribute("role", "status");
+            statusLine.setAttribute("aria-live", "polite");
+        }
+
+        const gamesArea = list.querySelector(".games-list");
+        if (gamesArea && statusLine.parentElement !== gamesArea) {
+            gamesArea.prepend(statusLine);
+        }
+
+        let uploadButton = document.getElementById("PolarisUploadButton");
+        let refreshButton = document.getElementById("PolarisRefresh");
+        let fileInput = document.getElementById("PolarisFile");
+
+        if (!uploadButton) {
+            uploadButton = document.createElement("button");
+            uploadButton.id = "PolarisUploadButton";
+            uploadButton.type = "button";
+            uploadButton.textContent = "Upload .rbxl";
+            filters.appendChild(uploadButton);
+        }
+
+        if (!refreshButton) {
+            refreshButton = document.createElement("button");
+            refreshButton.id = "PolarisRefresh";
+            refreshButton.type = "button";
+            refreshButton.textContent = "Refresh";
+            filters.appendChild(refreshButton);
+        }
+
+        let sortSelect = document.getElementById("PolarisSort");
+
+        if (!sortSelect) {
+            sortSelect = document.createElement("select");
+            sortSelect.id = "PolarisSort";
+            sortSelect.setAttribute("aria-label", "Sort local games");
+
+            [
+                ["name", "Name (A-Z)"],
+                ["name-desc", "Name (Z-A)"],
+                ["newest", "Newest first"],
+                ["oldest", "Oldest first"],
+                ["largest", "Largest first"],
+                ["smallest", "Smallest first"]
+            ].forEach(function (option) {
+                sortSelect.add(new Option(option[1], option[0]));
+            });
+
+            filters.prepend(sortSelect);
+        }
+
+        if (!fileInput) {
+            fileInput = document.createElement("input");
+            fileInput.id = "PolarisFile";
+            fileInput.type = "file";
+            fileInput.accept = ".rbxl";
+            fileInput.setAttribute("aria-label", "Choose a Roblox place file");
+            filters.appendChild(fileInput);
+        }
+
+        function setStatus(message) {
+            statusLine.textContent = message;
+        }
+
+        function formatSize(bytes) {
+            if (bytes < 1024 * 1024) {
+                return (bytes / 1024).toFixed(1) + " KB";
+            }
+
+            return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+        }
+
+        function renderMaps() {
+            const query = searchInput.value.trim().toLowerCase();
+
+            const filtered = maps.filter(function (map) {
+                return (map.title + " " + map.name).toLowerCase().includes(query);
+            }).sort(compareMaps);
+
+            grid.classList.add("polaris-grid");
+            grid.replaceChildren();
+
+            if (!filtered.length) {
+                const empty = document.createElement("li");
+                empty.className = "polaris-empty";
+                empty.textContent = maps.length
+                    ? "No local games match your search."
+                    : "No local games found. Upload an .rbxl file to get started.";
+
+                grid.appendChild(empty);
+                return;
+            }
+
+            filtered.forEach(function (map) {
+                const card = document.createElement("li");
+                card.className = "polaris-game-card";
+
+                const thumbnail = document.createElement("div");
+                thumbnail.className = "polaris-game-thumbnail";
+                if (map.thumbnail) {
+                    const image = document.createElement("img");
+                    image.src = map.thumbnail;
+                    image.alt = "";
+                    image.loading = "lazy";
+                    thumbnail.appendChild(image);
+                } else {
+                    thumbnail.textContent = "🎮";
+                }
+
+                const details = document.createElement("div");
+                details.className = "polaris-game-details";
+
+                const title = document.createElement("div");
+                title.className = "polaris-game-title";
+                title.textContent = map.title;
+
+                const size = document.createElement("div");
+                size.className = "polaris-game-size";
+                size.textContent = formatSize(map.size);
+
+                const play = document.createElement("button");
+                play.className = "polaris-play-button";
+                play.type = "button";
+                play.textContent = "▶ Play";
+
+                play.addEventListener("click", async function () {
+                    if (launching) return;
+
+                    launching = true;
+                    play.disabled = true;
+                    setStatus("Launching " + map.title + "...");
+
+                    try {
+                        const response = await fetch("/api/play", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ name: map.name })
+                        });
+
+                        const data = await response.json();
+
+                        if (!response.ok) {
+                            throw new Error(data.error || "Could not launch the game.");
+                        }
+
+                        setStatus(data.message || "RFD launch requested.");
+                    } catch (error) {
+                        setStatus("Launch failed: " + error.message);
+                    } finally {
+                        launching = false;
+                        play.disabled = false;
+                    }
+                });
+
+                details.append(title, size, play);
+                card.append(thumbnail, details);
+                grid.appendChild(card);
+            });
+        }
+
+        async function loadMaps() {
+            if (loading) return;
+
+            loading = true;
+            refreshButton.disabled = true;
+            status.textContent = "Loading...";
+            setStatus("Loading local maps...");
+
+            try {
+                const response = await fetch("/api/maps", {
+                    cache: "no-store"
+                });
+
+                if (!response.ok) {
+                    throw new Error("Map API returned HTTP " + response.status);
+                }
+
+                const result = await response.json();
+
+                if (!Array.isArray(result)) {
+                    throw new Error("Expected /api/maps to return an array.");
+                }
+
+                maps = result
+                    .filter(function (map) {
+                        return map &&
+                            typeof map.name === "string" &&
+                            map.name.toLowerCase().endsWith(".rbxl") &&
+                            Number.isFinite(Number(map.size));
+                    })
+                    .map(function (map) {
+                        return {
+                            name: map.name,
+                            title: typeof map.title === "string" && map.title
+                                ? map.title
+                                : map.name.replace(/\.rbxl$/i, ""),
+                            thumbnail: typeof map.thumbnail === "string" ? map.thumbnail : null,
+                            size: Number(map.size),
+                            modified: Number(map.modified) || 0
+                        };
+                    });
+
+                renderMaps();
+
+                status.textContent = maps.length +
+                    (maps.length === 1 ? " local game" : " local games");
+
+                setStatus("Ready.");
+            } catch (error) {
+                grid.replaceChildren();
+
+                const message = document.createElement("li");
+                message.className = "polaris-empty";
+                message.textContent = "Could not load local games.";
+                grid.appendChild(message);
+
+                status.textContent = "Error";
+                setStatus("Could not load maps: " + error.message);
+                console.error("POLARIS map loading failed:", error);
+            } finally {
+                loading = false;
+                refreshButton.disabled = false;
+            }
+        }
+
+        async function uploadMap() {
+            const file = fileInput.files && fileInput.files[0];
+            if (!file || uploading) return;
+
+            if (!file.name.toLowerCase().endsWith(".rbxl")) {
+                setStatus("Only .rbxl files are supported.");
+                fileInput.value = "";
+                return;
+            }
+
+            uploading = true;
+            uploadButton.disabled = true;
+            refreshButton.disabled = true;
+            setStatus("Uploading " + file.name + "...");
+
+            try {
+                const response = await fetch(
+                    "/api/upload?name=" + encodeURIComponent(file.name),
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/octet-stream"
+                        },
+                        body: file
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || "Upload failed.");
+                }
+
+                fileInput.value = "";
+                setStatus(data.message || "Upload complete.");
+                await loadMaps();
+            } catch (error) {
+                setStatus("Upload failed: " + error.message);
+            } finally {
+                uploading = false;
+                uploadButton.disabled = false;
+                refreshButton.disabled = false;
+            }
+        }
+
+        searchInput.addEventListener("input", renderMaps);
+
+        sortSelect.addEventListener("change", function () {
+            sortMode = sortSelect.value;
+            renderMaps();
+        });
+
+        searchPanel.querySelector(".SearchIconButton")?.addEventListener(
+            "click",
+            function (event) {
+                event.preventDefault();
+                renderMaps();
+            }
+        );
+
+        searchInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                renderMaps();
+            }
+        });
+
+        uploadButton.addEventListener("click", function () {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener("change", uploadMap);
+        refreshButton.addEventListener("click", loadMaps);
+
+        loadMaps();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializePolaris, {
+            once: true
+        });
+    } else {
+        initializePolaris();
+    }
+})();
+</script>
 </body>
 </html><!--
      FILE ARCHIVED ON 13:04:46 Apr 28, 2016 AND RETRIEVED FROM THE

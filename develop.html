@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Develop - ROBLOX</title>
+<link href="//web.archive.org/web/20160428130446cs_/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://web.archive.org/web/20160428130446cs_/https://static.rbxcdn.com/css/leanbase___22743a79bbf0ab9368189f0daf7a1f6b_m.css/fetch"/>
+<link rel="stylesheet" href="https://web.archive.org/web/20160428130446cs_/https://static.rbxcdn.com/css/page___0bd1e2254462e9af61f0a6437e74f6f1_m.css/fetch"/>
+<link href="https://web.archive.org/web/20160428130446im_/https://images.rbxcdn.com/7aee41db80c1071f60377c3575a0ed87.ico" rel="icon"/>
+<style>
+#develop {
+
+    --blue: #00a2ff;
+    --blue-dark: #008bdc;
+    --red: #e2231a;
+    --red-dark: #c01c14;
+    --border: #d6d6d6;
+    --text: #333;
+    --muted: #777;
+    margin: 0;
+    padding: 10px 5px 30px;
+    color: var(--text);
+    font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+#develop, #develop * { box-sizing: border-box; }
+
+#develop .panel {
+    margin: 0;
+    padding: 0;
+}
+
+#develop .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+#develop h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#develop .subtitle {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+#develop .toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+#develop .toolbar input[type=search] {
+    flex: 1 1 220px;
+    min-width: 0;
+}
+
+#develop input[type=text],
+#develop input[type=search] {
+    padding: 8px 10px;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+}
+
+#develop input[type=text]:focus,
+#develop input[type=search]:focus {
+    outline: 0;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px rgba(0, 162, 255, .2);
+}
+
+#develop button {
+    padding: 8px 12px;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    background: #f4f4f4;
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#develop button:hover:not(:disabled) {
+    background: #e5e5e5;
+}
+
+#develop button:disabled {
+    opacity: .5; cursor: default;
+}
+
+#develop button.primary {
+    border-color: #1684c7;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 600;
+}
+
+#develop button.primary:hover:not(:disabled) {
+    background: var(--blue-dark);
+}
+
+#develop button.danger {
+    border-color: var(--red-dark);
+    background: var(--red);
+    color: #fff;
+    font-weight: 600;
+}
+
+#develop button.danger:hover:not(:disabled) {
+    background: var(--red-dark);
+}
+
+#develop button.link-danger {
+    border-color: transparent;
+    background: transparent;
+    color: var(--red);
+}
+
+#develop button.link-danger:hover:not(:disabled) {
+    background: #fdecea;
+}
+
+#develop #status {
+    min-height: 20px;
+    margin: 0 0 12px;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+#develop #status.ok {
+    color: #2a7d2a;
+}
+
+#develop #status.error {
+    color: var(--red);
+}
+
+#develop #list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#develop .game-row {
+    display: flex;
+    gap: 16px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: #fafafa;
+}
+
+#develop .game-row[hidden] {
+    display: none;
+}
+
+#develop .game-row.busy {
+    opacity: .6; pointer-events: none;
+}
+
+#develop .thumb {
+    flex: 0 0 170px;
+    width: 170px;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #e5e5e5;
+    color: #888;
+    font-size: 44px;
+}
+
+#develop .thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#develop .details {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+#develop .field-label {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#develop .name-line {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+#develop .name-line input {
+    flex: 1 1 auto; min-width: 0;
+}
+
+#develop .info {
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+#develop .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+#develop .actions .spacer {
+    flex: 1 1 auto;
+}
+
+#develop .empty {
+    padding: 30px 10px;
+    text-align: center;
+    color: var(--muted);
+}
+
+#develop dialog {
+    width: min(420px, calc(100% - 30px));
+    padding: 0;
+    border: 1px solid #999;
+    border-radius: 4px;
+    color: var(--text);
+}
+
+#develop dialog::backdrop {
+    background: rgba(0, 0, 0, .5);
+}
+
+#develop .dialog-body {
+    padding: 20px;
+}
+
+#develop .dialog-body h2 {
+    margin: 0 0 10px; font-size: 20px;
+}
+
+#develop .dialog-body p {
+    margin: 0 0 8px; overflow-wrap: anywhere;
+}
+
+#develop .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 12px 20px;
+    border-top: 1px solid var(--border);
+    background: #f4f4f4;
+}
+
+@media (max-width: 560px) {
+#develop .game-row {
+    flex-direction: column;
+}
+
+#develop .thumb {
+    flex-basis: auto; width: 100%; height: 190px;
+}
+}
+</style>
+</head>
+<body id="rbx-body" class="" data-internal-page-name="Develop">
+
+<div id="wrap" class="wrap no-gutter-ads logged-out" data-gutter-ads-enabled="false">
+
+<div id="header" class="navbar-fixed-top rbx-header" role="navigation">
+    <div class="container-fluid">
+        <div class="rbx-navbar-header">
+            <div data-behavior="nav-notification" class="rbx-nav-collapse" onselectstart="return false;">
+
+                <div class="notification-red hide" title="0">
+                    
+                </div>
+
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/games"><span class="logo logo-transitional"></span></a>
+            </div>
+        </div>
+        <ul class="nav rbx-navbar hidden-xs hidden-sm col-md-4 col-lg-3">
+            <li>
+                <a href="/games">Games</a>
+            </li>
+            <li>
+                <a href="https://web.archive.org/web/20160428130446/https://www.roblox.com/catalog">Catalog</a>
+            </li>
+            <li>
+                <a href="/develop">Develop</a>
+            </li>
+            <li>
+                <a class="buy-robux" href="https://web.archive.org/web/20160428130446/https://www.roblox.com/upgrades/robux?ctx=nav">ROBUX</a>
+            </li>
+        </ul><!--rbx-navbar-->
+        <div id="navbar-universal-search" class="navbar-left rbx-navbar-search col-xs-5 col-sm-6 col-md-3" data-behavior="univeral-search" role="search">
+            <div class="input-group">
+
+                <input id="navbar-search-input" class="form-control input-field" type="text" placeholder="Search" maxlength="120"/>
+                <div class="input-group-btn">
+                    <button id="navbar-search-btn" class="input-addon-btn" type="submit">
+                        <span class="icon-nav-search"></span>
+                    </button>
+                </div>
+            </div>
+            <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+                <li class="rbx-navbar-search-option selected" data-searchurl="https://www.roblox.com/games/?Keyword=">
+                    <span class="rbx-navbar-search-text">Search <span class="rbx-navbar-search-string"></span> in Games</span>
+                </li>
+                        <li class="rbx-navbar-search-option" data-searchurl="https://www.roblox.com/search/users?keyword=">
+                            <span class="rbx-navbar-search-text">Search <span class="rbx-navbar-search-string"></span> in People</span>
+                        </li>
+                        <li class="rbx-navbar-search-option" data-searchurl="https://www.roblox.com/catalog/browse.aspx?CatalogContext=1&amp;Keyword=">
+                            <span class="rbx-navbar-search-text">Search <span class="rbx-navbar-search-string"></span> in Catalog</span>
+                        </li>
+                        <li class="rbx-navbar-search-option" data-searchurl="https://www.roblox.com/groups/search.aspx?val=">
+                            <span class="rbx-navbar-search-text">Search <span class="rbx-navbar-search-string"></span> in Groups</span>
+                        </li>
+                        <li class="rbx-navbar-search-option" data-searchurl="https://www.roblox.com/develop/library?CatalogContext=2&amp;Category=6&amp;Keyword=">
+                            <span class="rbx-navbar-search-text">Search <span class="rbx-navbar-search-string"></span> in Library</span>
+                        </li>
+            </ul>
+        </div><!--rbx-navbar-search-->
+        <div class="navbar-right rbx-navbar-right col-xs-4 col-sm-3">
+                <ul class="nav navbar-right rbx-navbar-right-nav" data-display-opened="False">
+                        <li>
+                        <a id="header-login" class="rbx-navbar-login" data-behavior="login" data-toggle="popover" data-bind="popover-login" data-viewport="#header">Log In</a>
+                    </li>
+                    <li>
+                        <a class="rbx-navbar-signup" href="https://web.archive.org/web/20160428130446/https://www.roblox.com/newlogin?returnUrl=%2Fgames%2F%3FSortFilter%3Ddefault%26TimeFilter%3D0%26GenreFilter%3D1">Sign Up</a>
+                    </li>
+                    <li class="rbx-navbar-right-search" data-toggle="toggle-search">
+                        <a class="rbx-menu-icon">
+                            <span class="icon-nav-search-white"></span>
+                        </a>
+                    </li>
+                </ul>
+        </div><!-- navbar right-->
+        <ul class="nav rbx-navbar hidden-md hidden-lg col-xs-12">
+            <li>
+                <a href="/games">Games</a>
+            </li>
+            <li>
+                <a href="https://web.archive.org/web/20160428130446/https://www.roblox.com/catalog/">Catalog</a>
+            </li>
+            <li>
+                <a href="/develop">Develop</a>
+            </li>
+            <li>
+                <a class="buy-robux" href="https://web.archive.org/web/20160428130446/https://www.roblox.com/upgrades/robux?ctx=nav">ROBUX</a>
+            </li>
+        </ul><!--rbx-navbar-->
+    </div>
+</div>
+
+    <div class="container-main">
+        <div class="content">
+<div id="develop">
+
+    <section class="panel">
+        <div class="panel-header">
+            <h1>Manage Games</h1>
+            <span id="count" class="subtitle" style="margin:0"></span>
+        </div>
+        <p class="subtitle">Rename games, change their thumbnails, or delete them from your local library.</p>
+
+        <div class="toolbar">
+            <input id="search" type="search" placeholder="Search games..." aria-label="Search games">
+            <button id="refresh" type="button">Refresh</button>
+        </div>
+
+        <div id="status" role="status" aria-live="polite"></div>
+
+        <ul id="list"></ul>
+    </section>
+
+<dialog id="deleteDialog">
+    <div class="dialog-body">
+        <h2>Delete game?</h2>
+        <p><strong id="deleteName"></strong></p>
+        <p>This permanently deletes the .rbxl file and its thumbnail from this computer. This cannot be undone.</p>
+    </div>
+    <div class="dialog-actions">
+        <button id="deleteCancel" type="button">Cancel</button>
+        <button id="deleteConfirm" type="button" class="danger">Delete</button>
+    </div>
+</dialog>
+</div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    "use strict";
+
+    var MAX_THUMBNAIL_BYTES = 5 * 1024 * 1024;
+    var MAX_TITLE_LENGTH = 80;
+
+    var listEl = document.getElementById("list");
+    var statusEl = document.getElementById("status");
+    var countEl = document.getElementById("count");
+    var searchEl = document.getElementById("search");
+    var navSearchEl = document.getElementById("navbar-search-input");
+    var refreshBtn = document.getElementById("refresh");
+    var dialog = document.getElementById("deleteDialog");
+    var deleteNameEl = document.getElementById("deleteName");
+    var deleteConfirmBtn = document.getElementById("deleteConfirm");
+    var deleteCancelBtn = document.getElementById("deleteCancel");
+
+    var maps = [];
+    var rows = new Map();
+    var pendingDelete = null;
+
+    function setStatus(message, kind) {
+        statusEl.textContent = message || "";
+        statusEl.className = kind || "";
+    }
+
+    function formatSize(bytes) {
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+        return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+    }
+
+    function formatDate(ms) {
+        if (!ms) return "Unknown";
+        return new Date(ms).toLocaleString();
+    }
+
+    function naturalCompare(a, b) {
+        return a.title.localeCompare(b.title, undefined, { numeric: true, sensitivity: "base" });
+    }
+
+    async function api(url, options) {
+        var response = await fetch(url, options);
+        var data = {};
+
+        try {
+            data = await response.json();
+        } catch (error) {}
+
+        if (!response.ok) {
+            throw new Error(data.error || "Request failed (HTTP " + response.status + ").");
+        }
+
+        return data;
+    }
+
+    function postJson(url, body) {
+        return api(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+        });
+    }
+
+    function updateCount() {
+        countEl.textContent = maps.length + (maps.length === 1 ? " game" : " games");
+    }
+
+    function applySearch() {
+        var query = searchEl.value.trim().toLowerCase();
+        var visible = 0;
+
+        maps.forEach(function (map) {
+            var row = rows.get(map.name);
+            if (!row) return;
+
+            var match = (map.title + " " + map.name).toLowerCase().includes(query);
+            row.hidden = !match;
+            if (match) visible++;
+        });
+
+        var empty = document.getElementById("noMatches");
+
+        if (maps.length && !visible) {
+            if (!empty) {
+                empty = document.createElement("li");
+                empty.id = "noMatches";
+                empty.className = "empty";
+                empty.textContent = "No games match your search.";
+                listEl.appendChild(empty);
+            }
+        } else if (empty) {
+            empty.remove();
+        }
+    }
+
+    function buildRow(map) {
+        var row = document.createElement("li");
+        row.className = "game-row";
+        row.dataset.name = map.name;
+
+        // --- thumbnail ---
+        var thumb = document.createElement("div");
+        thumb.className = "thumb";
+
+        if (map.thumbnail) {
+            var img = document.createElement("img");
+            img.src = map.thumbnail;
+            img.alt = "Thumbnail for " + map.title;
+            thumb.appendChild(img);
+        } else {
+            thumb.textContent = "\uD83C\uDFAE";
+        }
+
+        // --- details ---
+        var details = document.createElement("div");
+        details.className = "details";
+
+        var label = document.createElement("label");
+        label.className = "field-label";
+        label.textContent = "Name";
+
+        var nameLine = document.createElement("div");
+        nameLine.className = "name-line";
+
+        var nameInput = document.createElement("input");
+        nameInput.type = "text";
+        nameInput.value = map.title;
+        nameInput.maxLength = MAX_TITLE_LENGTH;
+        nameInput.setAttribute("aria-label", "Name for " + map.title);
+
+        var saveBtn = document.createElement("button");
+        saveBtn.type = "button";
+        saveBtn.className = "primary";
+        saveBtn.textContent = "Save";
+        saveBtn.disabled = true;
+
+        nameLine.append(nameInput, saveBtn);
+
+        var info = document.createElement("div");
+        info.className = "info";
+        info.textContent = map.name + "  \u00B7  " + formatSize(map.size) +
+            "  \u00B7  Added " + formatDate(map.modified);
+
+        var actions = document.createElement("div");
+        actions.className = "actions";
+
+        var fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = "image/png,image/jpeg,image/gif,image/webp";
+        fileInput.hidden = true;
+
+        var thumbBtn = document.createElement("button");
+        thumbBtn.type = "button";
+        thumbBtn.textContent = map.thumbnail ? "Change thumbnail" : "Add thumbnail";
+
+        var removeThumbBtn = document.createElement("button");
+        removeThumbBtn.type = "button";
+        removeThumbBtn.textContent = "Remove thumbnail";
+        removeThumbBtn.hidden = !map.thumbnail;
+
+        var spacer = document.createElement("span");
+        spacer.className = "spacer";
+
+        var deleteBtn = document.createElement("button");
+        deleteBtn.type = "button";
+        deleteBtn.className = "link-danger";
+        deleteBtn.textContent = "Delete game";
+
+        actions.append(fileInput, thumbBtn, removeThumbBtn, spacer, deleteBtn);
+        details.append(label, nameLine, info, actions);
+        row.append(thumb, details);
+
+        // --- behavior ---
+        function replaceWith(updated) {
+            var index = maps.findIndex(function (item) { return item.name === updated.name; });
+            if (index !== -1) maps[index] = updated;
+
+            var fresh = buildRow(updated);
+            row.replaceWith(fresh);
+            rows.set(updated.name, fresh);
+            applySearch();
+        }
+
+        async function run(task) {
+            row.classList.add("busy");
+
+            try {
+                await task();
+            } catch (error) {
+                setStatus(error.message, "error");
+            } finally {
+                row.classList.remove("busy");
+            }
+        }
+
+        nameInput.addEventListener("input", function () {
+            saveBtn.disabled = nameInput.value.trim() === map.title;
+        });
+
+        nameInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" && !saveBtn.disabled) saveBtn.click();
+            if (event.key === "Escape") {
+                nameInput.value = map.title;
+                saveBtn.disabled = true;
+            }
+        });
+
+        saveBtn.addEventListener("click", function () {
+            run(async function () {
+                var data = await postJson("/api/maps/rename", {
+                    name: map.name,
+                    title: nameInput.value
+                });
+
+                replaceWith(data.map);
+                maps.sort(naturalCompare);
+                setStatus("Saved \u201C" + data.map.title + "\u201D.", "ok");
+            });
+        });
+
+        thumbBtn.addEventListener("click", function () {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener("change", function () {
+            var file = fileInput.files && fileInput.files[0];
+            fileInput.value = "";
+            if (!file) return;
+
+            if (!/^image\/(png|jpeg|gif|webp)$/.test(file.type)) {
+                setStatus("Thumbnail must be a PNG, JPG, GIF or WebP image.", "error");
+                return;
+            }
+
+            if (file.size > MAX_THUMBNAIL_BYTES) {
+                setStatus("Thumbnail must be 5 MB or smaller.", "error");
+                return;
+            }
+
+            run(async function () {
+                setStatus("Uploading thumbnail...");
+
+                var data = await api(
+                    "/api/maps/thumbnail?name=" + encodeURIComponent(map.name),
+                    {
+                        method: "POST",
+                        headers: { "Content-Type": file.type },
+                        body: file
+                    }
+                );
+
+                replaceWith(data.map);
+                setStatus("Thumbnail updated for \u201C" + data.map.title + "\u201D.", "ok");
+            });
+        });
+
+        removeThumbBtn.addEventListener("click", function () {
+            run(async function () {
+                var data = await postJson("/api/maps/thumbnail/remove", { name: map.name });
+                replaceWith(data.map);
+                setStatus("Thumbnail removed.", "ok");
+            });
+        });
+
+        deleteBtn.addEventListener("click", function () {
+            pendingDelete = { map: map, row: row };
+            deleteNameEl.textContent = map.title + " (" + map.name + ")";
+            dialog.showModal();
+            deleteCancelBtn.focus();
+        });
+
+        return row;
+    }
+
+    function render() {
+        listEl.replaceChildren();
+        rows.clear();
+        updateCount();
+
+        if (!maps.length) {
+            var empty = document.createElement("li");
+            empty.className = "empty";
+            empty.textContent = "No games yet. Upload an .rbxl file from the Games page.";
+            listEl.appendChild(empty);
+            return;
+        }
+
+        maps.forEach(function (map) {
+            var row = buildRow(map);
+            rows.set(map.name, row);
+            listEl.appendChild(row);
+        });
+
+        applySearch();
+    }
+
+    async function load() {
+        refreshBtn.disabled = true;
+        setStatus("Loading games...");
+
+        try {
+            var result = await api("/api/maps", { cache: "no-store" });
+
+            if (!Array.isArray(result)) throw new Error("Unexpected response from the server.");
+
+            maps = result.map(function (map) {
+                return {
+                    name: map.name,
+                    title: typeof map.title === "string" && map.title
+                        ? map.title
+                        : map.name.replace(/\.rbxl$/i, ""),
+                    thumbnail: typeof map.thumbnail === "string" ? map.thumbnail : null,
+                    size: Number(map.size) || 0,
+                    modified: Number(map.modified) || 0
+                };
+            }).sort(naturalCompare);
+
+            render();
+            setStatus("");
+        } catch (error) {
+            listEl.replaceChildren();
+            setStatus("Could not load games: " + error.message, "error");
+        } finally {
+            refreshBtn.disabled = false;
+        }
+    }
+
+    deleteCancelBtn.addEventListener("click", function () {
+        pendingDelete = null;
+        dialog.close();
+    });
+
+    dialog.addEventListener("cancel", function () {
+        pendingDelete = null;
+    });
+
+    deleteConfirmBtn.addEventListener("click", async function () {
+        if (!pendingDelete) return;
+
+        var target = pendingDelete;
+        pendingDelete = null;
+        deleteConfirmBtn.disabled = true;
+        target.row.classList.add("busy");
+
+        try {
+            var data = await postJson("/api/maps/delete", { name: target.map.name });
+
+            maps = maps.filter(function (item) { return item.name !== target.map.name; });
+            rows.delete(target.map.name);
+            target.row.remove();
+
+            if (!maps.length) render();
+            else {
+                updateCount();
+                applySearch();
+            }
+
+            setStatus(data.message, "ok");
+        } catch (error) {
+            target.row.classList.remove("busy");
+            setStatus(error.message, "error");
+        } finally {
+            deleteConfirmBtn.disabled = false;
+            dialog.close();
+        }
+    });
+
+    searchEl.addEventListener("input", function () {
+        if (navSearchEl) navSearchEl.value = searchEl.value;
+        applySearch();
+    });
+
+    if (navSearchEl) {
+        navSearchEl.addEventListener("input", function () {
+            searchEl.value = navSearchEl.value;
+            applySearch();
+        });
+    }
+
+    refreshBtn.addEventListener("click", load);
+
+    load();
+})();
+</script>
+</body>
+</html>
